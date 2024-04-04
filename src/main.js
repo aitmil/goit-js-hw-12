@@ -80,7 +80,7 @@ async function onSubmit(evt) {
   }
 
   hideLoader();
-  checkBtnStatus();
+  showLoadMore();
   evt.target.reset();
 }
 
