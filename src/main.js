@@ -64,6 +64,7 @@ async function onSubmit(evt) {
         message:
           'Sorry, there are no images matching your search query. Please try again!',
       });
+      hideLoadMore();
     } else {
       renderGallery(data.hits);
     }
