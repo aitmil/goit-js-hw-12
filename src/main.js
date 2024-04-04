@@ -64,7 +64,6 @@ async function onSubmit(evt) {
         message:
           'Sorry, there are no images matching your search query. Please try again!',
       });
-      hideLoadMore();
     } else {
       renderGallery(data.hits);
     }
@@ -81,7 +80,9 @@ async function onSubmit(evt) {
   }
 
   hideLoader();
-  showLoadMore();
+  if (data.hits.length !== 0) {
+    checkBtnStatus();
+  }
   evt.target.reset();
 }
 
