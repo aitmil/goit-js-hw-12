@@ -148,9 +148,9 @@ function checkBtnStatus() {
 }
 
 function myScroll() {
-  const height = gallery.firstChild.getBoundingClientRect().height;
+  const height = gallery.firstElementChild.getBoundingClientRect().height;
   scrollBy({
-    top: height * 2,
+    top: height * 2.5,
     behavior: 'smooth',
   });
 }

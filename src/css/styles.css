@@ -100,6 +100,7 @@ button:active {
   gap: 24px;
   justify-content: center;
   width: 1134px;
+  margin: 0 auto;
   margin-bottom: 32px;
 }
 
