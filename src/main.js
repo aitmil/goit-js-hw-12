@@ -47,8 +47,10 @@ async function onSubmit(evt) {
     return;
   }
 
+  let data;
+
   try {
-    const data = await getImage(query, currentPage);
+    data = await getImage(query, currentPage);
     maxPage = Math.ceil(data.totalHits / pageSize);
 
     lightbox.refresh();
@@ -80,6 +82,7 @@ async function onSubmit(evt) {
   }
 
   hideLoader();
+
   if (data.hits.length !== 0) {
     checkBtnStatus();
   }
