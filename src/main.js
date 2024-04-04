@@ -50,9 +50,8 @@ async function onSubmit(evt) {
 
   try {
     data = await getImage(query, currentPage);
-    maxPage = Math.ceil(data.totalHits / pageSize);
-
     lightbox.refresh();
+    maxPage = Math.ceil(data.totalHits / pageSize);
 
     if (data.hits.length === 0) {
       iziToast.error({
@@ -148,9 +147,23 @@ function checkBtnStatus() {
 }
 
 function myScroll() {
-  const height = gallery.firstElementChild.getBoundingClientRect().height;
-  scrollBy({
-    top: height * 2.5,
-    behavior: 'smooth',
-  });
+  const firstChild = gallery.firstElementChild;
+  if (firstChild && firstChild.nodeType === 1) {
+    const height = firstChild.getBoundingClientRect().height;
+    const scrollAmount = height * 2;
+    if (scrollAmount > 0) {
+      window.scrollBy({
+        top: scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  }
 }
+
+// function myScroll() {
+//   const height = gallery.firstElementChild.getBoundingClientRect().height;
+//   scrollBy({
+//     top: height * 2.5,
+//     behavior: 'smooth',
+//   });
+// }
