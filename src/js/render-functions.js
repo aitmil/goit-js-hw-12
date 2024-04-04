@@ -1,4 +1,6 @@
-export function galleryTemplate(arr) {
+import { gallery } from '../main';
+
+function galleryTemplate(arr) {
   return arr
     .map(
       ({
@@ -40,4 +42,9 @@ export function galleryTemplate(arr) {
 `
     )
     .join('');
+}
+
+export function renderGallery(arr) {
+  const markup = galleryTemplate(arr);
+  gallery.insertAdjacentHTML('beforeend', markup);
 }

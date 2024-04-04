@@ -68,13 +68,15 @@ input:active {
 }
 
 button {
+  display: block;
   border-radius: 8px;
   padding: 8px 16px;
-  width: 91px;
-  height: 40px;
   background-color: #4e75ff;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
   border: none;
 }
 
@@ -87,12 +89,18 @@ button:active {
   outline: none;
 }
 
+.btn-load {
+  max-width: 1134px;
+  margin: 0 auto;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
   justify-content: center;
   width: 1134px;
+  margin-bottom: 32px;
 }
 
 .thumb {
@@ -129,15 +137,11 @@ button:active {
   border: 8px double #d2ecaa;
   border-radius: 50%;
   border-top: 8px solid #38db69;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -25px;
-  margin-left: -25px;
 }
 
 @-webkit-keyframes spin {
