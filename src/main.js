@@ -86,6 +86,7 @@ async function onSubmit(evt) {
   if (data.hits.length !== 0) {
     checkBtnStatus();
   }
+
   evt.target.reset();
 }
 
