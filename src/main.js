@@ -11,7 +11,6 @@ const searchForm = document.querySelector('.search-form');
 export const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
 const loadBtn = document.querySelector('.btn-load');
-const galleryItem = document.querySelector('.gallery-item');
 
 let query;
 let currentPage = 1;
@@ -110,8 +109,8 @@ async function onLoadMoreClick() {
     });
   }
 
-  hideLoader();
   myScroll();
+  hideLoader();
   checkBtnStatus();
 }
 
@@ -148,10 +147,10 @@ function checkBtnStatus() {
   }
 }
 
-function myScroll() {
-  const height = gallery.getBoundingClientRect().height;
+export function myScroll() {
+  const height = gallery.firstChild.getBoundingClientRect().height;
   scrollBy({
-    top: height,
+    top: height * 2,
     behavior: 'smooth',
   });
 }
