@@ -1,4 +1,10 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 import { gallery } from '../main';
+
+let lightbox = new SimpleLightbox('.lightbox a', { captionsData: 'alt' });
+lightbox.on('show.simplelightbox', function () {});
 
 function galleryTemplate(arr) {
   return arr
@@ -47,4 +53,5 @@ function galleryTemplate(arr) {
 export function renderGallery(arr) {
   const markup = galleryTemplate(arr);
   gallery.insertAdjacentHTML('beforeend', markup);
+  lightbox.refresh();
 }

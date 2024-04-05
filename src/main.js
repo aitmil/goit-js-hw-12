@@ -1,9 +1,6 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
 import { getImage } from './js/pixabay-api';
 import { renderGallery } from './js/render-functions';
 
@@ -16,9 +13,6 @@ let query;
 let currentPage = 1;
 let maxPage = 0;
 const pageSize = 15;
-
-let lightbox = new SimpleLightbox('.lightbox a', { captionsData: 'alt' });
-lightbox.on('show.simplelightbox', function () {});
 
 showLoader();
 setTimeout(hideLoader, 100);
@@ -50,7 +44,6 @@ async function onSubmit(evt) {
 
   try {
     data = await getImage(query, currentPage);
-    lightbox.refresh();
     maxPage = Math.ceil(data.totalHits / pageSize);
 
     if (data.hits.length === 0) {
@@ -95,7 +88,6 @@ async function onLoadMoreClick() {
   try {
     const data = await getImage(query, currentPage);
     renderGallery(data.hits);
-    lightbox.refresh();
   } catch (err) {
     iziToast.error({
       maxWidth: '432px',
